@@ -94,7 +94,7 @@ else
   syn match  perlFunctionName                "&\$*\%(\I\i*\)\=\%(\%(::\|'\)\I\i*\)*\%(::\|\i\@<=\)" nextgroup=perlVarMember,perlVarSimpleMember,perlMethod
 endif
 syn match perlElseIfError	"\(else\s*\_[\s]*\)\@<=\s\+if" contained
-syn clear perlBraces "perlBraces is a fold feature that interferes with our own syntax groups 
+syn clear perlBraces "perlBraces is a fold feature that interferes with our own syntax groups
 syn region perlCode matchgroup=perlDelim start="^<s>" matchgroup=perlDelim end="^</s>" contains=@Perl containedin=ALL fold keepend
 syn region perlCode matchgroup=perlDelim start="^<l/>" matchgroup=NONE end="$"  concealends contains=@Perl containedin=ALLBUT,perlCode keepend
 syn region perlCode matchgroup=perlDelim start="<i>"  matchgroup=perlDelim end="</i>"  concealends contains=@Perl containedin=ALLBUT,perlCode keepend
@@ -109,14 +109,38 @@ if !exists("g:template_guibg_light")
   let g:template_guibg_light = "#"."F0F0F0"
 endif
 let g:template_guibg = (&background=="dark") ? g:template_guibg_dark : g:template_guibg_light
+if !exists("g:template_guifg_dark")
+  let g:template_guifg_dark = "#"."808080"
+endif
+if !exists("g:template_guifg_light")
+  let g:template_guifg_light = "#"."606060"
+endif
+let g:template_guifg = (&background=="dark") ? g:template_guifg_dark : g:template_guifg_light
 if !exists("g:template_guifg_offset")
   let g:template_guifg_offset = "#000000"
 endif
 if !exists("g:template_delim_guifg")
   let g:template_delim_guifg = (&background=="dark") ? "#"."505050" : "#"."B0B0B0"
 endif
+if !exists("g:template_ctermbg_dark")
+  let g:template_ctermbg_dark = 7
+endif
+if !exists("g:template_ctermbg_light")
+  let g:template_ctermbg_light = 7
+endif
+let g:template_ctermbg = (&background=="dark") ? g:template_ctermbg_dark : g:template_ctermbg_light
+if !exists("g:template_ctermfg_dark")
+  let g:template_ctermfg_dark = 0
+endif
+if !exists("g:template_ctermfg_light")
+  let g:template_ctermfg_light = 0
+endif
+let g:template_ctermfg = (&background=="dark") ? g:template_ctermfg_dark : g:template_ctermfg_light
+if !exists("g:template_ctermfg_offset")
+  let g:template_ctermfg_offset = 0
+endif
 if !exists("g:template_delim_ctermfg")
-  let g:template_delim_ctermfg = (&background=="dark") ? 1 : 14
+  let g:template_delim_ctermfg = (&background=="dark") ? 0 : 15
 endif
 " derived components from global variables
 let s:gfg_r_off = str2nr(strpart(g:template_guifg_offset,1,2),16)
@@ -136,23 +160,18 @@ function! s:update_hl(hl_name)
   let gbg= (gbg=="") ? g:template_guibg : gbg
 
   let gfg=synIDattr(id, "fg#")
-  let gfg= (gfg=="") ? synIDattr(nid, "fg#") : gfg
+  let gfg= (gfg=="") ? g:template_guifg : gfg
   let gfg_r=(str2nr(strpart(gfg,1,2),16) + s:gfg_r_off) % 256
   let gfg_g=(str2nr(strpart(gfg,3,2),16) + s:gfg_g_off) % 256
   let gfg_b=(str2nr(strpart(gfg,5,2),16) + s:gfg_b_off) % 256
   let gfg=printf("#%02x%02x%02x",gfg_r,gfg_g,gfg_b)
 
   let bg=str2nr(synIDattr(id, "bg"))
-  let bg= (bg==-1) ? str2nr(synIDattr(nid, "bg")) : bg
-  let bg= (bg==-1 && &background=="dark"  ) ? 0  : bg
-  let bg= (bg==-1 && &background=="light" ) ? 15 : bg
-  let bg=(bg + 8) % 16
+  let bg= (bg==-1) ? g:template_ctermbg : bg
 
-  let fg=synIDattr(id, "fg")
-  let fg= (fg=="") ? synIDattr(nid, "fg") : fg
-  let fg= (fg==-1 && &background=="dark"  ) ? 15 : fg
-  let fg= (fg==-1 && &background=="light" ) ? 0  : fg
-  let fg=(fg + 8) % 16
+  let fg=str2nr(synIDattr(id, "fg"))
+  let fg= (fg==-1) ? g:template_ctermfg : fg
+  let fg=(fg + g:template_ctermfg_offset) % 16
 
   let attrlist = synIDattr(id, "bold")      ? ["bold"     ] : []
   let attrlist+= synIDattr(id, "italic")    ? ["italic"   ] : []
