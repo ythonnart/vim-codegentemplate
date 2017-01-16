@@ -158,6 +158,10 @@ function! s:update_hl(hl_name)
 
   let gbg=synIDattr(id, "bg#")
   let gbg= (gbg=="") ? g:template_guibg : gbg
+  let gbg_r=str2nr(strpart(gbg,1,2),16)
+  let gbg_g=str2nr(strpart(gbg,3,2),16)
+  let gbg_b=str2nr(strpart(gbg,5,2),16)
+  let gbg=printf("#%02x%02x%02x",gbg_r,gbg_g,gbg_b)
 
   let gfg=synIDattr(id, "fg#")
   let gfg= (gfg=="") ? g:template_guifg : gfg
