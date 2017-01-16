@@ -13,80 +13,118 @@ function! s:reset_hl(hl_name)
 endfunction
 
 " Reset all base hilight groups to revert to original perl hilighting
-call s:reset_hl("podCmdText")
-call s:reset_hl("podCommand")
-call s:reset_hl("podOverIndent")
-call s:reset_hl("podForKeywd")
-call s:reset_hl("podFormat")
-call s:reset_hl("podVerbatimLine")
-call s:reset_hl("podSpecial")
-call s:reset_hl("podEscape")
-call s:reset_hl("podEscape2")
-call s:reset_hl("podBoldItalic")
-call s:reset_hl("podBoldOpen")
-call s:reset_hl("podBoldAlternativeDelimOpen")
-call s:reset_hl("podItalicBold")
-call s:reset_hl("podItalicOpen")
-call s:reset_hl("podItalicAlternativeDelimOpen")
-call s:reset_hl("podNoSpaceOpen")
-call s:reset_hl("podNoSpaceAlternativeDelimOpen")
-call s:reset_hl("podIndexOpen")
-call s:reset_hl("podIndexAlternativeDelimOpen")
-call s:reset_hl("podBold")
-call s:reset_hl("podBoldAlternativeDelim")
-call s:reset_hl("podItalic")
-call s:reset_hl("podItalicAlternativeDelim")
-call s:reset_hl("perlTodo")
-call s:reset_hl("perlConditional")
-call s:reset_hl("perlElseIfError")
-call s:reset_hl("perlRepeat")
-call s:reset_hl("perlOperator")
-call s:reset_hl("perlControl")
-call s:reset_hl("perlFiledescStatementNocomma")
-call s:reset_hl("perlFiledescStatementComma")
-call s:reset_hl("perlStatementIndirObjWrap")
-call s:reset_hl("perlLabel")
-call s:reset_hl("perlVarMember")
-call s:reset_hl("perlVarBlock")
-call s:reset_hl("perlVarBlock2")
-call s:reset_hl("perlFloat")
-call s:reset_hl("perlNumber")
-call s:reset_hl("perlString")
-call s:reset_hl("perlPackageConst")
-call s:reset_hl("perlNotEmptyLine")
-call s:reset_hl("perlComment")
-call s:reset_hl("perlAutoload")
-call s:reset_hl("perlSubError")
-call s:reset_hl("perlSubAttributes")
-call s:reset_hl("perlSubPrototypeError")
-call s:reset_hl("perlSubPrototype")
-call s:reset_hl("perlSubName")
-call s:reset_hl("perlFunction")
 call s:reset_hl("perlSharpBang")
-call s:reset_hl("perlFormat")
-call s:reset_hl("perlPackageFold")
-call s:reset_hl("perlSubFold")
-call s:reset_hl("perlBlockFold")
+call s:reset_hl("perlControl")
 call s:reset_hl("perlInclude")
 call s:reset_hl("perlSpecial")
+call s:reset_hl("perlString")
 call s:reset_hl("perlCharacter")
+call s:reset_hl("perlNumber")
+call s:reset_hl("perlFloat")
 call s:reset_hl("perlType")
 call s:reset_hl("perlIdentifier")
+call s:reset_hl("perlLabel")
 call s:reset_hl("perlStatement")
-call s:reset_hl("perlSync")
-call s:reset_hl("perlSyncPOD")
-call s:reset_hl("perlDelim")
-call s:reset_hl("perlCode")
-call s:reset_hl("perlBlock")
-" These highlight groups are overriden by vim-colors-solarized,
-" need to turn them off
-exe "hi! link perlVarPlain perlIdentifier"
-exe "hi! link perlHereDoc perlString"
-exe "hi! link perlStatementFileDesc perlStatement"
+call s:reset_hl("perlConditional")
+call s:reset_hl("perlRepeat")
+call s:reset_hl("perlOperator")
+call s:reset_hl("perlFunction")
+call s:reset_hl("perlSubName")
+call s:reset_hl("perlSubPrototype")
+call s:reset_hl("perlSubAttributes")
+call s:reset_hl("perlSubAttributesCont")
+call s:reset_hl("perlComment")
+call s:reset_hl("perlTodo")
+if exists("perl_string_as_statement")
+  call s:reset_hl("perlStringStartEnd")
+else
+  call s:reset_hl("perlStringStartEnd")
+endif
+call s:reset_hl("perlVStringV")
+call s:reset_hl("perlList")
+call s:reset_hl("perlMisc")
+call s:reset_hl("perlVarPlain")
+call s:reset_hl("perlVarPlain2")
+call s:reset_hl("perlArrow")
+call s:reset_hl("perlFiledescRead")
+call s:reset_hl("perlFiledescStatement")
+call s:reset_hl("perlVarSimpleMember")
+call s:reset_hl("perlVarSimpleMemberName")
+call s:reset_hl("perlVarNotInMatches")
+call s:reset_hl("perlVarSlash")
+call s:reset_hl("perlQQ")
+call s:reset_hl("perlHereDoc")
+call s:reset_hl("perlStringUnexpanded")
+call s:reset_hl("perlSubstitutionSQ")
+call s:reset_hl("perlSubstitutionGQQ")
+call s:reset_hl("perlTranslationGQ")
+call s:reset_hl("perlMatch")
+call s:reset_hl("perlMatchStartEnd")
+call s:reset_hl("perlFormatName")
+call s:reset_hl("perlFormatField")
+call s:reset_hl("perlPackageDecl")
+call s:reset_hl("perlStorageClass")
+call s:reset_hl("perlPackageRef")
+call s:reset_hl("perlStatementPackage")
+call s:reset_hl("perlStatementStorage")
+call s:reset_hl("perlStatementControl")
+call s:reset_hl("perlStatementScalar")
+call s:reset_hl("perlStatementRegexp")
+call s:reset_hl("perlStatementNumeric")
+call s:reset_hl("perlStatementList")
+call s:reset_hl("perlStatementHash")
+call s:reset_hl("perlStatementIOfunc")
+call s:reset_hl("perlStatementFiledesc")
+call s:reset_hl("perlStatementVector")
+call s:reset_hl("perlStatementFiles")
+call s:reset_hl("perlStatementFlow")
+call s:reset_hl("perlStatementInclude")
+call s:reset_hl("perlStatementProc")
+call s:reset_hl("perlStatementSocket")
+call s:reset_hl("perlStatementIPC")
+call s:reset_hl("perlStatementNetwork")
+call s:reset_hl("perlStatementPword")
+call s:reset_hl("perlStatementTime")
+call s:reset_hl("perlStatementMisc")
+call s:reset_hl("perlStatementIndirObj")
+call s:reset_hl("perlFunctionName")
+call s:reset_hl("perlMethod")
+call s:reset_hl("perlFunctionPRef")
+call s:reset_hl("perlPOD")
+call s:reset_hl("perlShellCommand")
+call s:reset_hl("perlSpecialAscii")
+call s:reset_hl("perlSpecialDollar")
+call s:reset_hl("perlSpecialString")
+call s:reset_hl("perlSpecialStringU")
+call s:reset_hl("perlSpecialMatch")
+call s:reset_hl("perlDATA")
+
+" NOTE: Due to a bug in Vim (or more likely, a misunderstanding on my part),
+"       I had to remove the transparent property from the following regions
+"       in order to get them to highlight correctly.  Feel free to remove
+"       these and reinstate the transparent property if you know how.
+"call s:reset_hl("perlParensSQ")
+"call s:reset_hl("perlBracketsSQ")
+"call s:reset_hl("perlBracesSQ")
+"call s:reset_hl("perlAnglesSQ")
+"
+"call s:reset_hl("perlParensDQ")
+"call s:reset_hl("perlBracketsDQ")
+"call s:reset_hl("perlBracesDQ")
+"call s:reset_hl("perlAnglesDQ")
+
+call s:reset_hl("perlSpecialStringU2")
+
+" Possible errors
+call s:reset_hl("perlNotEmptyLine")
+call s:reset_hl("perlElseIfError")
+call s:reset_hl("perlSubPrototypeError")
+call s:reset_hl("perlSubError")
 
 let perl_fold = 1
 let perl_fold_blocks = 1
 syn include @Perl syntax/perl.vim
+" Fix a few syntax elements incompatible with our colors
 syn clear perlFunctionPRef perlFunctionName perlElseIfError perlNotEmptyLine
 if !exists("perl_no_scope_in_variables")
   syn match  perlFunctionName                "&\$*\%(\I\i*\)\=\%(\%(::\|'\)\I\i*\)*\%(::\|\i\@<=\)" contains=perlPackageRef nextgroup=perlVarMember,perlVarSimpleMember,perlMethod
@@ -94,7 +132,15 @@ else
   syn match  perlFunctionName                "&\$*\%(\I\i*\)\=\%(\%(::\|'\)\I\i*\)*\%(::\|\i\@<=\)" nextgroup=perlVarMember,perlVarSimpleMember,perlMethod
 endif
 syn match perlElseIfError	"\(else\s*\_[\s]*\)\@<=\s\+if" contained
+syn region perlStatementIndirObjWrap   matchgroup=perlStatementIndirObj start="\<\%(map\|grep\|sort\|printf\=\|say\|system\|exec\)\>\s*{" end="}" contains=@perlTop,perlBraces extend transparent "transparent attribute not used in original syntax
 syn clear perlBraces "perlBraces is a fold feature that interferes with our own syntax groups
+" These highlight groups are overriden by vim-colors-solarized,
+" need to turn them off
+exe "hi! link perlVarPlain perlIdentifier"
+exe "hi! link perlHereDoc perlString"
+exe "hi! link perlStatementFileDesc perlStatement"
+
+
 syn region perlCode matchgroup=perlDelim start="^<s>" matchgroup=perlDelim end="^</s>" contains=@Perl containedin=ALL fold keepend
 syn region perlCode matchgroup=perlDelim start="^<l/>" matchgroup=NONE end="$"  concealends contains=@Perl containedin=ALLBUT,perlCode keepend
 syn region perlCode matchgroup=perlDelim start="<i>"  matchgroup=perlDelim end="</i>"  concealends contains=@Perl containedin=ALLBUT,perlCode keepend
@@ -123,17 +169,17 @@ if !exists("g:template_delim_guifg")
   let g:template_delim_guifg = (&background=="dark") ? "#"."505050" : "#"."B0B0B0"
 endif
 if !exists("g:template_ctermbg_dark")
-  let g:template_ctermbg_dark = 7
+  let g:template_ctermbg_dark = 0
 endif
 if !exists("g:template_ctermbg_light")
   let g:template_ctermbg_light = 7
 endif
 let g:template_ctermbg = (&background=="dark") ? g:template_ctermbg_dark : g:template_ctermbg_light
 if !exists("g:template_ctermfg_dark")
-  let g:template_ctermfg_dark = 0
+  let g:template_ctermfg_dark = 12
 endif
 if !exists("g:template_ctermfg_light")
-  let g:template_ctermfg_light = 0
+  let g:template_ctermfg_light = 11
 endif
 let g:template_ctermfg = (&background=="dark") ? g:template_ctermfg_dark : g:template_ctermfg_light
 if !exists("g:template_ctermfg_offset")
@@ -149,12 +195,10 @@ let s:gfg_b_off = str2nr(strpart(g:template_guifg_offset,5,2),16)
 
 function! s:update_hl(hl_name)
   let id = hlID(a:hl_name)
-  let nid = hlID("Normal")
   if id == 0
-    let id = nid
+    let id = hlID("Normal")
   endif
   let id = synIDtrans(id)
-  let nid = synIDtrans(nid)
 
   let gbg=synIDattr(id, "bg#")
   let gbg= (gbg=="") ? g:template_guibg : gbg
@@ -193,76 +237,120 @@ function! s:update_hl(hl_name)
 endfunction
 
 " New highlight groups
+execute "highlight perlCode ctermfg=fg ctermbg=NONE"
 call s:update_hl("perlCode")
-call s:update_hl("perlDelim")
 let s:hl=printf("highlight perlDelim term=bold cterm=bold ctermfg=%d gui=bold guifg=%s",g:template_delim_ctermfg,g:template_delim_guifg)
 execute s:hl
+call s:update_hl("perlDelim")
+
 " Parent Perl highlight groups
-call s:update_hl("podCmdText")
-call s:update_hl("podCommand")
-call s:update_hl("podOverIndent")
-call s:update_hl("podForKeywd")
-call s:update_hl("podFormat")
-call s:update_hl("podVerbatimLine")
-call s:update_hl("podSpecial")
-call s:update_hl("podEscape")
-call s:update_hl("podEscape2")
-call s:update_hl("podBoldItalic")
-call s:update_hl("podBoldOpen")
-call s:update_hl("podBoldAlternativeDelimOpen")
-call s:update_hl("podItalicBold")
-call s:update_hl("podItalicOpen")
-call s:update_hl("podItalicAlternativeDelimOpen")
-call s:update_hl("podNoSpaceOpen")
-call s:update_hl("podNoSpaceAlternativeDelimOpen")
-call s:update_hl("podIndexOpen")
-call s:update_hl("podIndexAlternativeDelimOpen")
-call s:update_hl("podBold")
-call s:update_hl("podBoldAlternativeDelim")
-call s:update_hl("podItalic")
-call s:update_hl("podItalicAlternativeDelim")
-call s:update_hl("perlTodo")
-call s:update_hl("perlConditional")
-call s:update_hl("perlElseIfError")
-call s:update_hl("perlRepeat")
-call s:update_hl("perlOperator")
-call s:update_hl("perlControl")
-call s:update_hl("perlFiledescStatementNocomma")
-call s:update_hl("perlFiledescStatementComma")
-call s:update_hl("perlStatementIndirObjWrap")
-call s:update_hl("perlLabel")
-call s:update_hl("perlVarMember")
-call s:update_hl("perlVarBlock")
-call s:update_hl("perlVarBlock2")
-call s:update_hl("perlFloat")
-call s:update_hl("perlNumber")
-call s:update_hl("perlString")
-call s:update_hl("perlPackageConst")
-call s:update_hl("perlNotEmptyLine")
-call s:update_hl("perlComment")
-call s:update_hl("perlAutoload")
-call s:update_hl("perlSubError")
-call s:update_hl("perlSubAttributes")
-call s:update_hl("perlSubPrototypeError")
-call s:update_hl("perlSubPrototype")
-call s:update_hl("perlSubName")
-call s:update_hl("perlFunction")
 call s:update_hl("perlSharpBang")
-call s:update_hl("perlFormat")
-call s:update_hl("perlPackageFold")
-call s:update_hl("perlSubFold")
-call s:update_hl("perlBlockFold")
+call s:update_hl("perlControl")
 call s:update_hl("perlInclude")
 call s:update_hl("perlSpecial")
+call s:update_hl("perlString")
 call s:update_hl("perlCharacter")
+call s:update_hl("perlNumber")
+call s:update_hl("perlFloat")
 call s:update_hl("perlType")
 call s:update_hl("perlIdentifier")
+call s:update_hl("perlLabel")
 call s:update_hl("perlStatement")
-call s:update_hl("perlSync")
-call s:update_hl("perlSyncPOD")
-call s:update_hl("perlDelim")
-call s:update_hl("perlCode")
-call s:update_hl("perlBlock")
+call s:update_hl("perlConditional")
+call s:update_hl("perlRepeat")
+call s:update_hl("perlOperator")
+call s:update_hl("perlFunction")
+call s:update_hl("perlSubName")
+call s:update_hl("perlSubPrototype")
+call s:update_hl("perlSubAttributes")
+call s:update_hl("perlSubAttributesCont")
+call s:update_hl("perlComment")
+call s:update_hl("perlTodo")
+if exists("perl_string_as_statement")
+  call s:update_hl("perlStringStartEnd")
+else
+  call s:update_hl("perlStringStartEnd")
+endif
+call s:update_hl("perlVStringV")
+call s:update_hl("perlList")
+call s:update_hl("perlMisc")
+call s:update_hl("perlVarPlain")
+call s:update_hl("perlVarPlain2")
+call s:update_hl("perlArrow")
+call s:update_hl("perlFiledescRead")
+call s:update_hl("perlFiledescStatement")
+call s:update_hl("perlVarSimpleMember")
+call s:update_hl("perlVarSimpleMemberName")
+call s:update_hl("perlVarNotInMatches")
+call s:update_hl("perlVarSlash")
+call s:update_hl("perlQQ")
+call s:update_hl("perlHereDoc")
+call s:update_hl("perlStringUnexpanded")
+call s:update_hl("perlSubstitutionSQ")
+call s:update_hl("perlSubstitutionGQQ")
+call s:update_hl("perlTranslationGQ")
+call s:update_hl("perlMatch")
+call s:update_hl("perlMatchStartEnd")
+call s:update_hl("perlFormatName")
+call s:update_hl("perlFormatField")
+call s:update_hl("perlPackageDecl")
+call s:update_hl("perlStorageClass")
+call s:update_hl("perlPackageRef")
+call s:update_hl("perlStatementPackage")
+call s:update_hl("perlStatementStorage")
+call s:update_hl("perlStatementControl")
+call s:update_hl("perlStatementScalar")
+call s:update_hl("perlStatementRegexp")
+call s:update_hl("perlStatementNumeric")
+call s:update_hl("perlStatementList")
+call s:update_hl("perlStatementHash")
+call s:update_hl("perlStatementIOfunc")
+call s:update_hl("perlStatementFiledesc")
+call s:update_hl("perlStatementVector")
+call s:update_hl("perlStatementFiles")
+call s:update_hl("perlStatementFlow")
+call s:update_hl("perlStatementInclude")
+call s:update_hl("perlStatementProc")
+call s:update_hl("perlStatementSocket")
+call s:update_hl("perlStatementIPC")
+call s:update_hl("perlStatementNetwork")
+call s:update_hl("perlStatementPword")
+call s:update_hl("perlStatementTime")
+call s:update_hl("perlStatementMisc")
+call s:update_hl("perlStatementIndirObj")
+call s:update_hl("perlFunctionName")
+call s:update_hl("perlMethod")
+call s:update_hl("perlFunctionPRef")
+call s:update_hl("perlPOD")
+call s:update_hl("perlShellCommand")
+call s:update_hl("perlSpecialAscii")
+call s:update_hl("perlSpecialDollar")
+call s:update_hl("perlSpecialString")
+call s:update_hl("perlSpecialStringU")
+call s:update_hl("perlSpecialMatch")
+call s:update_hl("perlDATA")
+
+" NOTE: Due to a bug in Vim (or more likely, a misunderstanding on my part),
+"       I had to remove the transparent property from the following regions
+"       in order to get them to highlight correctly.  Feel free to remove
+"       these and reinstate the transparent property if you know how.
+"call s:update_hl("perlParensSQ")
+"call s:update_hl("perlBracketsSQ")
+"call s:update_hl("perlBracesSQ")
+"call s:update_hl("perlAnglesSQ")
+"
+"call s:update_hl("perlParensDQ")
+"call s:update_hl("perlBracketsDQ")
+"call s:update_hl("perlBracesDQ")
+"call s:update_hl("perlAnglesDQ")
+
+call s:update_hl("perlSpecialStringU2")
+
+" Possible errors
+call s:update_hl("perlNotEmptyLine")
+call s:update_hl("perlElseIfError")
+call s:update_hl("perlSubPrototypeError")
+call s:update_hl("perlSubError")
 
 let b:current_syntax=s:last_syntax
 unlet s:last_syntax
