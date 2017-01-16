@@ -132,7 +132,7 @@ else
   syn match  perlFunctionName                "&\$*\%(\I\i*\)\=\%(\%(::\|'\)\I\i*\)*\%(::\|\i\@<=\)" nextgroup=perlVarMember,perlVarSimpleMember,perlMethod
 endif
 syn match perlElseIfError	"\(else\s*\_[\s]*\)\@<=\s\+if" contained
-syn region perlStatementIndirObjWrap   matchgroup=perlStatementIndirObj start="\<\%(map\|grep\|sort\|printf\=\|say\|system\|exec\)\>\s*{" end="}" contains=@perlTop,perlBraces extend transparent "transparent attribute not used in original syntax
+syn region perlStatementIndirObjWrap   matchgroup=perlStatementIndirObj start="\<\%(map\|grep\|sort\|printf\=\|say\|system\|exec\)\>\s*{" end="}" contains=@Perl,@perlTop,perlBraces extend transparent "transparent attribute not used in original syntax
 syn clear perlBraces "perlBraces is a fold feature that interferes with our own syntax groups
 " These highlight groups are overriden by vim-colors-solarized,
 " need to turn them off
