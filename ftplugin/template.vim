@@ -237,7 +237,8 @@ function! s:update_hl(hl_name)
 endfunction
 
 " New highlight groups
-execute "highlight perlCode ctermfg=fg ctermbg=NONE"
+let s:hl=printf("highlight perlCode ctermfg=%d ctermbg=NONE",g:template_ctermfg)
+execute s:hl
 call s:update_hl("perlCode")
 let s:hl=printf("highlight perlDelim term=bold cterm=bold ctermfg=%d gui=bold guifg=%s",g:template_delim_ctermfg,g:template_delim_guifg)
 execute s:hl
