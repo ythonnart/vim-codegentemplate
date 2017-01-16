@@ -125,14 +125,14 @@ let perl_fold = 1
 let perl_fold_blocks = 1
 syn include @Perl syntax/perl.vim
 " Fix a few syntax elements incompatible with our colors
-syn clear perlFunctionPRef perlFunctionName perlElseIfError perlNotEmptyLine
+syn clear perlFunctionPRef perlFunctionName perlElseIfError perlNotEmptyLine perlStatementIndirObjWrap
 if !exists("perl_no_scope_in_variables")
-  syn match  perlFunctionName                "&\$*\%(\I\i*\)\=\%(\%(::\|'\)\I\i*\)*\%(::\|\i\@<=\)" contains=perlPackageRef nextgroup=perlVarMember,perlVarSimpleMember,perlMethod
+  syn match  perlFunctionName                "&\$*\%(\I\i*\)\=\%(\%(::\|'\)\I\i*\)*\%(::\|\i\@<=\)" contains=perlPackageRef nextgroup=perlVarMember,perlVarSimpleMember,perlMethod containedin=perlCode contained
 else
-  syn match  perlFunctionName                "&\$*\%(\I\i*\)\=\%(\%(::\|'\)\I\i*\)*\%(::\|\i\@<=\)" nextgroup=perlVarMember,perlVarSimpleMember,perlMethod
+  syn match  perlFunctionName                "&\$*\%(\I\i*\)\=\%(\%(::\|'\)\I\i*\)*\%(::\|\i\@<=\)" nextgroup=perlVarMember,perlVarSimpleMember,perlMethod containedin=perlCode contained
 endif
-syn match perlElseIfError	"\(else\s*\_[\s]*\)\@<=\s\+if" contained
-syn region perlStatementIndirObjWrap   matchgroup=perlStatementIndirObj start="\<\%(map\|grep\|sort\|printf\=\|say\|system\|exec\)\>\s*{" end="}" contains=@Perl,@perlTop,perlBraces extend transparent "transparent attribute not used in original syntax
+syn match perlElseIfError	"\(else\s*\_[\s]*\)\@<=\s\+if" containedin=perlCode contained
+syn region perlStatementIndirObjWrap   matchgroup=perlStatementIndirObj start="\<\%(map\|grep\|sort\|printf\=\|say\|system\|exec\)\>\s*{" end="}" contains=@Perl extend transparent containedin=perlCode contained
 syn clear perlBraces "perlBraces is a fold feature that interferes with our own syntax groups
 " These highlight groups are overriden by vim-colors-solarized,
 " need to turn them off
