@@ -1,7 +1,7 @@
 vim-codegentemplate : useful scripts for code generation from templates
 =======================================================================
 
-Vim-codegentemplate template files are files of any type which contain
+Codegen template files are files of any type which contain
 embedded perl code for generation of more complex files. XML-like annotations
 indicate the sections of Perl code in the original file format.
 

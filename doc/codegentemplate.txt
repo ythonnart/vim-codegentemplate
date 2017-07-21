@@ -1,4 +1,4 @@
-*vim-codegentemplate.txt*
+*codegentemplate.txt*
 
                     Useful scripts for code generation from templates ~
 
@@ -6,29 +6,29 @@ Authors:  Jean-Frédéric Christmann
           Yvain Thonnart
 Version:  0.4
 Date:     Jul. 21, 2017
-                                                 *vim-codegentemplate-copyright*
+                                                     *codegentemplate-copyright*
 Copyright: (c) 2009 - 2017 by the authors
-           The VIM LICENSE applies to vim-codegentemplate.vim and
-           vim-codegentemplate.txt (see |copyright|) except use
-           vim-codegentemplate instead of "Vim".
+           The VIM LICENSE applies to codegentemplate.vim and
+           codegentemplate.txt (see |copyright|) except use
+           codegentemplate instead of "Vim".
            NO WARRANTY, EXPRESS OR IMPLIED.  USE AT-YOUR-OWN-RISK.
 
 ==============================================================================
-0. Contents                                            *vim-codegentemplate-toc*
+0. Contents                                                *codegentemplate-toc*
 
         1. Template syntax highlighting
-          1.1. Template syntax concepts                    |vim-codegentemplate|
-          1.2. Template highlight customisation       |vim-codegentemplate-cust|
-        2. Changelog                             |vim-codegentemplate-changelog|
+          1.1. Template syntax concepts                        |codegentemplate|
+          1.2. Template highlight customisation           |codegentemplate-cust|
+        2. Changelog                                 |codegentemplate-changelog|
 
 ==============================================================================
 1. Template syntax highlighting
 
 ------------------------------------------------------------------------------
-                                                           *vim-codegentemplate*
+                                                               *codegentemplate*
 1.1 Template syntax concepts
 
-Vim-codegentemplate template files are files of any type which contain
+codegentemplate template files are files of any type which contain
 embedded perl code for generation of more complex files. XML-like annotations
 indicate the sections of Perl code in the original file format.
 
@@ -36,13 +36,13 @@ This plugin allows to embed |ft-perl-syntax| highlighting in the Perl sections,
 and provides a fold mechanism based on Perl opening and closing braces
 transparently across Perl sections.
 
-                                                       *vim-codegentemplate-ext*
+                                                           *codegentemplate-ext*
 `*.template`    The .template extension is used to detect files containing
               embedded perl syntax highlighting in any file.
               The |ftdetect| mechanism recognises this extension and
               launches this plugin.
 
-                                                   *vim-codegentemplate-markers*
+                                                       *codegentemplate-markers*
 `<s>`           On a single line, opens a Perl section
 
 `</s>`          On a single line, closes a Perl section
@@ -54,7 +54,7 @@ transparently across Perl sections.
 `<f>`...`</f>`    Inside a line, to evaluate and format a Perl expression
               input as Perl printf arguments
 
-                                                   *vim-codegentemplate-folding*
+                                                       *codegentemplate-folding*
 Folding using template syntax is possible on <l/> Perl lines.
 A fold level starts with an opening brace '{' at the end of the Perl line,
 possibly followed by comments.
@@ -66,96 +66,96 @@ Folding is not enforced by default for template files. To activate it, use:
 
         set fdm=syntax fdc=4
 
-See |vim-codegentemplate-cust| below to activate folding from .vimrc
+See |codegentemplate-cust| below to activate folding from .vimrc
 
 ------------------------------------------------------------------------------
-                                                      *vim-codegentemplate-cust*
+                                                          *codegentemplate-cust*
 1.2 Template highlighting customization
 
 
-                                                   *vim-codegentemplate-autocmd*
+                                                       *codegentemplate-autocmd*
 Use the following autocommand in your .vimrc to activate folding for template
 files:
 
         autocmd BufNewfile,BufRead *.template set fdc=4 fdm=syntax
 
-                                                    *vim-codegentemplate-colors*
+                                                        *codegentemplate-colors*
 Set the variables below in your .vimrc to customize Perl code highlight
 colors. Use the following syntax to set these variables:
         let g:template...=
-                                       *vim-codegentemplate-template_guibg_dark*
+                                           *codegentemplate-template_guibg_dark*
 g:template_guibg_dark           Sets the default background color of Perl code
                                 on a dark |&background|
                                 for the gui
                                 (format "#xxxxxx" 6-digit RGB hex)
 
-                                      *vim-codegentemplate-template_guibg_light*
+                                          *codegentemplate-template_guibg_light*
 g:template_guibg_light          Sets the default background color of Perl code
                                 on a light |&background|
                                 for the gui
                                 (format "#xxxxxx" 6-digit RGB hex)
 
-                                       *vim-codegentemplate-template_guifg_dark*
+                                           *codegentemplate-template_guifg_dark*
 g:template_guifg_dark           Sets the default foreground color of Perl code
                                 on a dark |&background|
                                 for the gui
                                 (format "#xxxxxx" 6-digit RGB hex)
 
-                                      *vim-codegentemplate-template_guifg_light*
+                                          *codegentemplate-template_guifg_light*
 g:template_guifg_light          Sets the default foreground color of Perl code
                                 on a light |&background|
                                 for the gui
                                 (format "#xxxxxx" 6-digit RGB hex)
 
-                                     *vim-codegentemplate-template_guifg_offset*
+                                         *codegentemplate-template_guifg_offset*
 g:template_guifg_offset         Sets an offset mod. 256 to the foreground
                                 RGB color components of Perl code
                                 for the gui
                                 (format "#xxxxxx" 6-digit RGB hex)
 
-                                      *vim-codegentemplate-template_delim_guifg*
+                                          *codegentemplate-template_delim_guifg*
 g:template_delim_guifg          Sets the color of the XML-like markers
                                 for the gui
                                 (format "#xxxxxx" 6-digit RGB hex)
 
-                                     *vim-codegentemplate-template_ctermbg_dark*
+                                         *codegentemplate-template_ctermbg_dark*
 g:template_ctermbg_dark         Sets the default background color of Perl code
                                 on a dark |&background|
                                 for the color terminal
                                 (format 0-15 integer color code)
 
-                                    *vim-codegentemplate-template_ctermbg_light*
+                                        *codegentemplate-template_ctermbg_light*
 g:template_ctermbg_light        Sets the default background color of Perl code
                                 on a light |&background|
                                 for the color terminal
                                 (format 0-15 integer color code)
 
-                                     *vim-codegentemplate-template_ctermfg_dark*
+                                         *codegentemplate-template_ctermfg_dark*
 g:template_ctermfg_dark         Sets the default foreground color of Perl code
                                 on a dark |&background|
                                 for the color terminal
                                 (format 0-15 integer color code)
 
-                                    *vim-codegentemplate-template_ctermfg_light*
+                                        *codegentemplate-template_ctermfg_light*
 g:template_ctermfg_light        Sets the default foreground color of Perl code
                                 on a light |&background|
                                 for the color terminal
                                 (format 0-15 integer color code)
 
-                                   *vim-codegentemplate-template_ctermfg_offset*
+                                       *codegentemplate-template_ctermfg_offset*
 g:template_ctermfg_offset       Sets an offset mod. 16 to the foreground
                                 colors of Perl code
                                 for the color terminal
                                 (format 0-15 integer color code)
 
-                                    *vim-codegentemplate-template_delim_ctermfg*
+                                        *codegentemplate-template_delim_ctermfg*
 g:template_delim_ctermfg        Sets the color of the XML-like markers
                                 for the color terminal
                                 (format 0-15 integer color code)
 
-                                              *vim-codegentemplate-cust-example*
+                                                  *codegentemplate-cust-example*
 Below is an example configuration for solarized colorscheme
-from Ethan Schoonover (https://github.com/altercation/vim-colors-solarized)
+from Ethan Schoonover (https://github.com/altercation/colors-solarized)
 
 "Solarized colors for template files
 let g:template_guibg_dark  = "#"."073642" "base02
@@ -170,7 +170,7 @@ let g:template_ctermfg_light = 11 "base00
 let g:template_delim_ctermfg = 11 "base00
 
 ==============================================================================
-2. Changelog                                     *vim-codegentemplate-changelog*
+2. Changelog                                         *codegentemplate-changelog*
 
     0.4: Jul 21, 2017:  Rename project to isolate other plugins
     0.3: May 12, 2016:  Improved coloring & loop detection
