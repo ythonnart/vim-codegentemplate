@@ -1,9 +1,9 @@
-vim-vlsi : useful scripts for VLSI design
-=========================================
+vim-codegentemplate : useful scripts for code generation from templates
+=======================================================================
 
-Vim-vlsi template files are files of any type which contain embedded perl code
-for generation of more complex files. XML-like annotations indicate the
-sections of Perl code in the original file format.
+Vim-codegentemplate template files are files of any type which contain
+embedded perl code for generation of more complex files. XML-like annotations
+indicate the sections of Perl code in the original file format.
 
 This plugin allows to embed Perl highlighting in the Perl sections,
 and provides a fold mechanism based on Perl opening and closing braces
@@ -26,9 +26,9 @@ transparently across Perl sections.
 * Yvain Thonnart
 
 ## Copyright & Licencse:
-(c) 2009 - 2016 by the authors
+(c) 2009 - 2017 by the authors
 
-The VIM LICENSE applies to vim-vlsi
-(see vim copyright) except use vim-vlsi instead of "Vim".
+The VIM LICENSE applies to vim-codegentemplate
+(see vim copyright) except use vim-codegentemplate instead of "Vim".
 
 NO WARRANTY, EXPRESS OR IMPLIED.  USE AT-YOUR-OWN-RISK.
